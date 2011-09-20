@@ -1,11 +1,11 @@
-\name{persistence.prep2}
-\alias{persistence.prep2}
+\name{persistence.prep}
+\alias{persistence.prep}
 \title{Internal Logic forest Functions
 }
 \description{Internal function called by \code{\link{persistence.plot}}.  Not intended to be used independt of this function.
 }
 \usage{
-persistence.prep2(fit, preds, PI)
+persistence.prep(fit, preds, PI)
 }
 \arguments{
   \item{fit}{ an object of class \code{logforest}.
@@ -21,4 +21,5 @@ persistence.prep2(fit, preds, PI)
 }
 
 \keyword{internal}
+
 

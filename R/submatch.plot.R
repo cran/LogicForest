@@ -103,7 +103,7 @@ function(fit, pred.nms, pis, preds, size, color=FALSE)
       y<-rep(1, cols)
       symbols(x, y, circles=plotmat/ellig.PIs, ylab="",xlab="", main=tit, inches=0.2, xlim=c(0,(cols+.5)), 
               ylim=c(0,(pi+.5)), xaxt="n", yaxt="n", bg=colr[colvec[1]], fg=colr[colvec[1]])
-      names(plotmat)<-names(num.sz)[loc:n.sz]
+      names(plotmat)<-names(num.sz)[loc:max(unq.sz)]
       abline(h=1, col=colr[colvec[1]], lty=3)
       axis(1, at=c(1:cols), labels=names(plotmat), cex.axis=.85)
       axis(2, at=1, labels=rownames(mat)[c(top.mat),], cex.axis=.85)
@@ -142,4 +142,3 @@ function(fit, pred.nms, pis, preds, size, color=FALSE)
     barplot(sort(PIfreqs, decreasing=FALSE), axes=FALSE, xlim=c(0, topsz), col=colr, space=0, axisnames=FALSE, horiz=TRUE)
   }
 }
-

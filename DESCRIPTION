@@ -1,17 +1,21 @@
 Package: LogicForest
 Type: Package
 Title: Logic Forest
-Version: 1.0
-Date: 2010-07-07
+Version: 2.0.0
+Date: 2011-09-20
 Author: Bethany Wolf
 Maintainer: Bethany Wolf <wolfb@musc.edu>
-Depends: LogicReg, CircStats, gtools, plotrix
-Description: Classification ensemble based on logic regression trees.
-        Used for classification of binary responses based on binary
-        predictors and for identification of important variables and
-        variable interactions predictive of a binary outcome.
+Depends: R (>= 2.10), LogicReg, CircStats, gtools, plotrix
+Description: Two classification ensemble methods based on logic
+        regression models.  Logforest uses a bagging approach to
+        contruct an ensemble of logic regression models.  LBoost uses a
+        combination of boosting and cross-validation to construct and
+        ensemble of logic regression models.  Both methods are used for
+        classification of binary responses based on binary predictors
+        and for identification of important variables and variable
+        interactions predictive of a binary outcome.
 License: GPL-2
 LazyLoad: yes
-Packaged: 2010-07-09 15:42:20 UTC; wolfb
+Packaged: 2012-07-23 09:29:35 UTC; ripley
 Repository: CRAN
-Date/Publication: 2010-07-25 11:06:03
+Date/Publication: 2012-07-23 10:35:31

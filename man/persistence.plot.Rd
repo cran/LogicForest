@@ -16,16 +16,16 @@ persistence.plot(fit, preds, PI, title)
 }
   \item{preds}{ a numeric value representing the number of predictors in the original data used to construct the logic forest model.
 }
-  \item{PI}{ a charachter string representing the variable or interaction term to be plotted.
+  \item{PI}{ a character string representing the variable or interaction term to be plotted.
 }
   \item{title}{ an optional title for the plot
 }
 }
 
-\details{Persistence plots can be generated for any variable or interaction term that occurs in a logic forest model.  Plots can also be generated for variables and interaction terms that do not occur in the logic forest model exactly as given in the argument PI.
+\details{Persistence plots can be generated for any variable or interaction term that occurs in a logic forest or LBoost model.  Plots can also be generated for variables and interaction terms that do not occur in the model exactly as given in the argument \code{PI} assuming that at least one subset match for that variable/interaction exists.
 }
 
-\value{Invisibly all subset matches for the variable or interaction term defined by the arguement PI.
+\value{Invisibly all subset matches for the variable or interaction term defined by the argument \code{PI}.
 }
 
 \references{Wolf, B.J., Slate, E.H., Hill, E.G. (2010) Logic Forest: An ensemble classifier for discovering logical combinations of binary markers.  Bioinformatics.
@@ -38,18 +38,25 @@ persistence.plot(fit, preds, PI, title)
 }
 
 \examples{
-data(LFfit1)
+data(logforest.fit, LBoost.fit)
 
-#Persistence of the predictor X5 in the logic forest model LFfit1
-persistence.plot(fit=LFfit1, preds=50, PI="X5", title="Persistence for
- X5")
+#Persistence of the predictor X5 in the logic forest model logforest.fit
+persistence.plot(fit=logforest.fit, preds=50, PI="X5",
+title="logforest Persistence for X5")
+#Same plot for the LBoost model LBoost.fit
+persistence.plot(fit=LBoost.fit, preds=50, PI="X5",
+                 title="LBoost Persistence for X5")
 
-#Persistence of predictor X10- not persistent in the model 
-persistence.plot(fit=LFfit1, preds=50, PI="!X10", title="Persistence 
-for X10")
+#Persistence of the interaction term (X4 & X5) in the logic forest model 
+#logforest.fit
+persistence.plot(fit=logforest.fit, preds=50, PI="X4 & X5",
+                 title="logforest Persistence for interaction X4 & X5")
 
-#Persistence of the interaction term (X5 & X11) in LFfit1
-persistence.plot(fit=LFfit1, preds=50, PI="X5 & X11",  
-title="Persistence for X5 & X11")
+#Same plot for the LBoost model LBoost.fit
+persistence.plot(fit=LBoost.fit, preds=50, PI="X4 & X5",  
+                 title="LBoost persistence for interaction X4 & X5")
 
 }
+
+
+

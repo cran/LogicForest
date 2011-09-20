@@ -1,8 +1,8 @@
 subs <-
-function(allPI.list, preds, match.list)
+function(fit, allPI.list, preds, match.list)
 {
- prednames<-paste("X", 1:preds, sep="")
- predcomps<-paste("!X", 1:preds, sep="")
+ prednames<-colnames(fit$Xs)
+ predcomps<-paste("!", prednames, sep="")
  pred.names<-c(prednames,predcomps)
  for (i in 1:length(allPI.list))
    {

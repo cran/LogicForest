@@ -2,7 +2,7 @@
 \alias{pimp.mat}
 \title{Internal Logic Forest Functions
 }
-\description{This function is called by pimp.import  It is not intended to be used independently of this function.  
+\description{This function is called by \code{pimp.import} and \code{\link{LBoost.PIs}}.  It is not intended to be used independently of these function.  
 }
 
 \references{
@@ -12,3 +12,4 @@
 \note{This function is internal and not intended to be used independently of the other functions.
 }
 \keyword{internal}
+

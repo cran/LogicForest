@@ -1,4 +1,4 @@
-persistence.prep2 <-
+persistence.prep <-
 function(fit, preds, PI)
 {
  per1<-persist.match(fit=fit, preds=preds, match.list=PI)
@@ -11,7 +11,8 @@ function(fit, preds, PI)
  PIoI.freq<-ifelse (PI%in%names(frq), frq[PI], 0)
  allPI.list<-names(frq)
  m<-length(unique(unlist(mches)))
- if (m==0) stop("There are no matches for this PI")
+ if (m==0 & PIoI.freq==0) stop("There are no matches for this combination")
+ if (m==1 & PIoI.freq>0) stop("This combination occurs only as an exact match")
  sub.sizes<-c()
  if (PIoI.freq==0) {nms<-unique(unlist(mches))} 
  if (PIoI.freq>0) {nms<-unique(unlist(mches))[2:m]} 
@@ -34,7 +35,7 @@ function(fit, preds, PI)
    if (PIsz%in%PIsizes==1) {PI.nms<-as.vector(unique(mches[[i+1]]))}
    PI.ids<-which(colnames(match.mat)%in%PI.nms)
    if (length(PI.nms!=0)){
-     sb<-subs(allPI.list=allPI.list, preds=20, match.list=PI.nms)$matches[[1]]
+     sb<-subs(fit=fit, allPI.list=allPI.list, preds=preds, match.list=PI.nms)$matches[[1]]
      for(j in 1:length(sb))
        {
        PI.id<-PI.ids[j]
@@ -165,7 +166,11 @@ function(fit, preds, PI)
          mch.nm2<-names(which(match.mat[,prime.nm]==1))
          if (length(mch.nm2)>0)
            {
-           for (k in 1:length(mch.nm2))
+           if(length(mch.nm2)>29) {
+                           wrn<-paste("There are >29 subset matches for PI = ", prime.nm, ", only the first 29 will be included on the plot.", sep="")
+                           warning(wrn)
+                           }
+           for (k in 1:min(length(mch.nm2), 29))
              {
              pos1<-posit.list[[i-1]][j]
              names2<-append(names2, mch.nm2[k])
@@ -252,7 +257,7 @@ function(fit, preds, PI)
             freq.sec<-append(freq.sec, frq[mch.nm4[k]])
             nm.4<-setdiff(setdiff(unlist(strsplit(mch.nm4[k], " ")), "&"), t.nm)
             if (length(nm.4)==1) {nm4<-nm.4}
-            if (length(nm.4)==2) {nm4<-paste4(nm.4[1],"&",nm.4[2])}
+            if (length(nm.4)==2) {nm4<-paste(nm.4[1],"&",nm.4[2])}
             quat.nms<-append(quat.nms, nm4)
             if(even(k)==1) {new.pos4<-pos3+add.rad[k]}
             if(odd(k)==1) {new.pos4<-pos3-add.rad[k]}
@@ -301,7 +306,7 @@ function(fit, preds, PI)
             } 
           }
         }
-      pos5.mat<-cbind(x1s,y1s,x2s,y2s,freq5,quin.nm)
+      pos5.mat<-cbind(x1s,y1s,x2s,y2s,freq5,quin.nms)
       rownames(pos5.mat)<-names5
       posit.list[[i]]<-pos5.mat
       }

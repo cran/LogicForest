@@ -21,7 +21,7 @@
 \value{Returns a numeric vector of predicted classes for all observations in \code{newdata} or the out-of-bag predictions for data used to construct the logic forest and a numeric vector of the proportion of trees in a logic forest that predict a class of one.
 }
 
-\author{Bethany Wolf  wolfb@musc.edu
+\author{Bethany Wolf   wolfb@musc.edu
 }
 
 
@@ -29,11 +29,11 @@
 }
 
 \examples{
-data(LFfit1, LF.testdat)
+data(logforest.fit, LF.testdata)
 
 #OOB prediction on original data
-predict(LFfit1)
+predict(logforest.fit)
 
 #Prediction for new test data
-predict(LFfit1, newdata=LF.testdat[,1:50])
+predict(logforest.fit, newdata=LF.testdata[,1:50])
 }

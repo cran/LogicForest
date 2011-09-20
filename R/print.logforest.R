@@ -5,9 +5,9 @@ function(x, ...)
     stop("n not of class logforest")
  num<-x$numout
  pscore<-sort(x$Predictor.importance, decreasing=TRUE)
- pred.freq<-sort(x$Predictor.frequency, decreasing=TRUE)[1:num]
+ pred.freq<-x$Predictor.frequency[names(pscore)[1:num]]
  piscore<-sort(x$PI.importance, decreasing=TRUE)
- vimp.freq<-sort(x$PI.frequency, decreasing=TRUE)[1:num]
+ vimp.freq<-x$PI.frequency[names(piscore)[1:num]]
  p.1st<-paste("Top ", num, " Predictors", sep="")
  pi.1st<-paste("Top ", num, " Interactions", sep="")
  if (x$norm==TRUE)

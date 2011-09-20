@@ -2,7 +2,7 @@
 \alias{Perms}
 \title{Internal Logic Forest Functions
 }
-\description{This function is called by \code{logforest}.  It is not intended to be used independently of this function.  
+\description{This function is called by \code{TTab}.  It is not intended to be used independently of this function.  
 }
 
 

@@ -2,15 +2,16 @@ persist.match <-
 function(fit, pred.nms, preds, match.list)
 {
  if (missing(pred.nms)) {
-   prednames<-paste("X", 1:preds, sep="")
-   predcomps<-paste("!X", 1:preds, sep="")
+   prednames<-colnames(fit$Xs)
+   predcomps<-paste("!", prednames, sep="")
    pred.names<-c(prednames,predcomps)
    }
  else {
    predcomps<-paste("!", pred.nms, sep="")
    pred.names<-c(pred.nms, predcomps)
    }
- allPI.list<-names(unlist(fit$PI.importance))
+ if (class(fit)=="logforest") {allPI.list<-names(unlist(fit$PI.importance))}
+ if (class(fit)=="LBoost") {allPI.list<-names(fit$PI.frequency)}
  PI.freq<-fit$PI.frequency
  for (i in 1:length(allPI.list))
    {
@@ -49,7 +50,6 @@ function(fit, pred.nms, preds, match.list)
  rownames(PIsets)<-paste("size", lgth, sep=" ")
  colnames(whlPI.set)<-allPI.list
  rownames(whlPI.set)<-paste("size", all.lgth, sep=" ")
- #PI.list<-as.list(PI.list)
  for (i in 1:length(all.PIs))
    {
    PIset<-all.PIs[[i]]

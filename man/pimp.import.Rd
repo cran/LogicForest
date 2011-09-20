@@ -4,10 +4,11 @@
 }
 \description{This function is called by \code{\link{logforest}}.  It is not intended to be used independently of this function.  
 }
-\details{Determines the permutation based importance measure for all predictors and prime implicants corresponding to a specific logic regression tree within a logic forest
+\details{Determines the permutation based importance measure for all variables and variable interactions corresponding to a specific logic regression tree within a logic forest.
 }
 \author{Bethany Wolf wolfb@musc.edu
 }
-\note{This function is aupplementary and not intended to be used independently of the other functions.
+\note{This function is supplementary and not intended to be used independently of the other functions.
 }
 \keyword{internal}
+

@@ -61,7 +61,6 @@ function (tree, data, Xs)
     }
   vec.pimpvars<-sort(unique(unlist(list.pimps)))
   n.prime <- length(vec.primes)
-  mat.primes <- matrix(0, nrow(mat), n.prime)
   listPI <- list(vec.primes=vec.primes, tmp.mat=tmp.mat, vec.pimpvars=vec.pimpvars, list.pimps=list.pimps)
   class(listPI) <- "primeImp"
   listPI

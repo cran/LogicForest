@@ -1,11 +1,13 @@
 persistence.plot <-
 function(fit, preds, PI, title)
 {
+ if (class(fit)!="logforest"  & class(fit)!="LBoost") 
+    stop("fit not of class logforest or LBoost")
  require(CircStats)
  require(plotrix)
  require(gtools)
  tot.PI<-sum(fit$PI.frequency)
- persist.info<-persistence.prep2(fit=fit, preds=preds, PI=PI)
+ persist.info<-persistence.prep(fit=fit, preds=preds, PI=PI)
  pert.PI<-sum(persist.info$all.freqs)
  percent.pert<-round((pert.PI/tot.PI)*100,digits=1)
  leg<-paste(percent.pert, "% of all", sep="")
