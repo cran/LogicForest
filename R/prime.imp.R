@@ -65,4 +65,3 @@ function (tree, data, Xs)
   class(listPI) <- "primeImp"
   listPI
 }
-

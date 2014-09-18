@@ -24,4 +24,3 @@ function(match.list, allPIs, preds)
   all.lengths<-sort(setdiff(all.lgth, 0))
   ans<-list(PIsetlist=PIsetlist, allPI.list=allPI.list, lengths=lengths, all.lengths=all.lengths)
 }
-

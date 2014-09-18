@@ -66,4 +66,3 @@ function(fit, num=10, type=2, norm=TRUE, titles=TRUE)
   axis(2, at=c(num:1), labels=names(tPIs))
   }
 }
-

@@ -16,4 +16,3 @@ function(n, kfold)
    }
  loc.ids
 }
-

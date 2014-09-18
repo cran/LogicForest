@@ -1,7 +1,6 @@
 LBoost <-
 function(resp, Xs, anneal.params, nBS=100, kfold=5, nperm=1, PI.imp=NULL, pred.imp=FALSE)
 {
-  library(LogicReg)
   pred<-ncol(Xs)
   if (missing(anneal.params)) {anneal.params<-logreg.anneal.control(start=2, end=-1, iter=50000)}
   nBS2<-nBS/kfold
@@ -94,4 +93,3 @@ function(resp, Xs, anneal.params, nBS=100, kfold=5, nperm=1, PI.imp=NULL, pred.i
   class(ans)<-"LBoost"
   ans
 }
-

@@ -22,4 +22,3 @@ function(ids, resp, Xs, currentfit, pred)
    }
  ans<-list(Alldata=PImat, PITSdata=PITSdata, pred.ids=pred.ids) 
 }
-

@@ -38,4 +38,3 @@ function(object, newdata, cutoff=0.5,...)
   class(ans)<-"LFprediction"
   ans
 }
-

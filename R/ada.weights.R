@@ -13,4 +13,3 @@ function(fit, cwts, Xs, resp)
  nwts<-cwts*exp(alpha*miss)
  ans<-list(nwts=nwts, alpha=alpha, actual.miss=actual.miss, wted.miss=err.bar)
 }
-

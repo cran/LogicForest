@@ -11,17 +11,17 @@ function(fit, num=10, pred, norm=TRUE, titles=TRUE)
     else {tpred.norm<-tpred; up1<-tpred[1]+0.5}
     if (titles==TRUE) {title<-c("Predictor Importance", "Importance Scores")}
     else {title<-c("","")}
-    par(mfrow=c(1,1), cex.axis=0.6, mai=c(1,1.4,.5,.1), pch=19, las=1)
+    par(mfrow=c(1,1), cex.axis=0.6, mai=c(1,1.4,.5,.1), pch=19, las=1, ask=TRUE)
     plot(x=tpred.norm, y=c(num:1), xlab=title[2], ylab="", xlim=c(0.025, up1),
             ylim=c(0.5, num+.5), yaxt="n", main=title[1])
     segments(0, num, tpred.norm[1], num, lty=1)
     for (i in 1:(num-1)) {segments(0,(num-i),tpred.norm[i+1],(num-i),lty=1)} 
     axis(2, at=c(num:1), labels=names(tpred))
-    x11()
+    plot.new()
     }
  if (fit$PIimp=="AddRemove")
     {
-    tPIs<-sort(fit$AddRemove.PIimport, decreasing=TRUE)[1:num]
+    tPIs<-sort(fit$AddRemove.PIimport, decreasing=T)[1:num]
     if (norm==TRUE) {
       tPIs.norm<-tPIs/tPIs[1]
       up2<-1.1
@@ -43,7 +43,7 @@ function(fit, num=10, pred, norm=TRUE, titles=TRUE)
     }
   if (fit$PIimp=="Permutation")
     {
-    tPIs<-sort(fit$Perm.PIimport, decreasing=TRUE)[1:num]
+    tPIs<-sort(fit$Perm.PIimport, decreasing=T)[1:num]
     if (norm==TRUE) {
       tPIs.norm<-tPIs/tPIs[1]
       up2<-1.1
@@ -65,8 +65,8 @@ function(fit, num=10, pred, norm=TRUE, titles=TRUE)
     }
   if (fit$PIimp=="Both")
     {
-    tPIs1<-sort(fit$Perm.PIimport, decreasing=TRUE)[1:num]
-    tPIs2<-sort(fit$AddRemove.PIimport, decreasing=TRUE)[1:num]
+    tPIs1<-sort(fit$Perm.PIimport, decreasing=T)[1:num]
+    tPIs2<-sort(fit$AddRemove.PIimport, decreasing=T)[1:num]
     if (norm==TRUE) {
       tPIs.norm1<-tPIs1/tPIs1[1]
       tPIs.norm2<-tPIs2/tPIs2[1]
@@ -96,4 +96,3 @@ function(fit, num=10, pred, norm=TRUE, titles=TRUE)
     axis(2, at=c(num:1), labels=names(tPIs2))
     }
 }
-

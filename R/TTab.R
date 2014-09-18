@@ -25,4 +25,3 @@ function(data, tree, Xs)
   mat.truth<-mat.truth[ids.truth,-ncol(mat.truth),drop=FALSE]
   mat.truth
 }
-

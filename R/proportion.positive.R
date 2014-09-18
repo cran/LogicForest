@@ -19,4 +19,3 @@ function(predictmatrix, cutoff)
   predmat<-cbind(predict.pos, status)
   ans<-list(predmat=predmat)
 }
-

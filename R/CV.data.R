@@ -26,4 +26,3 @@ function(resp, Xs, kfold)
    }
  sets
 }
-

@@ -50,4 +50,3 @@ function(pimps.out, testdata)
  pimp.info<-list(pimp.names=pimp.names, pimp.datamat=pimp.datamat)
  pimp.info 
 }
-

@@ -1,7 +1,6 @@
 logforest <-
 function(resp, Xs, nBSXVars, anneal.params, nBS=100, h=0.5, norm=TRUE, numout=5)
 {
-  library(LogicReg)
   pred<-ncol(Xs)
   if (missing(anneal.params)) {anneal.params<-logreg.anneal.control(start=2, end=-1, iter=50000)}
   if (missing(nBSXVars)) {nBSXVars<-pred}
@@ -95,4 +94,3 @@ function(resp, Xs, nBSXVars, anneal.params, nBS=100, h=0.5, norm=TRUE, numout=5)
  class(ans)<-"logforest"
  ans
 }
-

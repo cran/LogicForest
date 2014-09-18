@@ -8,4 +8,3 @@ function(n)#generated matrix of all possible combos of predictors in tree
     }
   mat
 }
-

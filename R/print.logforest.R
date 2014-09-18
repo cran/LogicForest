@@ -39,4 +39,3 @@ function(x, ...)
  cat("\n")
  print.default(pis, quote=FALSE, print.gap=3)
 }
-

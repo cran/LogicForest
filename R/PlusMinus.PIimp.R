@@ -65,4 +65,3 @@ function(resp, Xs, fullPIdata, mod, wts, ntrees)
  Imp<-rowSums(cbind(APIimp, SPIimp))
  ans<-list(APIimp=APIimp, APIchange=APIchange, SPIimp=SPIimp, SPIchange=SPIchange, Imp=Imp)
 }
-

@@ -26,4 +26,3 @@ function(x, ...)
   print.default(prop, quote=FALSE)
   }
 }
-

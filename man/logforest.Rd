@@ -31,8 +31,6 @@ norm = TRUE, numout = 5)
 }
 }
 
-\details{
-}
 
 \value{An object of class \code{"logforest"} which is a list including values
   \item{AllFits }{A list of all logic regression fits in the logic forest model.}

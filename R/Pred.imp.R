@@ -11,7 +11,7 @@ function(CVmod, alphas, pred, nperm, CVmiss)
      truth<-testdata[,pred+1]
      fits<-CVmod[[i]]$AllFits  #vector of LR trees for this CV run
      c.alphas<-alphas[[i]]  #Vector of weights for fits in this CV run
-     perm.ids<-sample(1:nrow(testdata), nrow(testdata), replace=FALSE)
+     perm.ids<-sample(1:nrow(testdata), nrow(testdata), replace=F)
      miss.mat<-matrix(0, nrow=nrow(testdata), ncol=pred)  
      for (j in 1:pred)
        {
@@ -37,4 +37,3 @@ function(CVmod, alphas, pred, nperm, CVmiss)
  names(Pred.imp)<-colnames(CVmod[[1]]$testdata[,1:pred])
  Pred.imp
 }
-

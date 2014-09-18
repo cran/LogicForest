@@ -8,8 +8,7 @@
 \details{Generates a matrix of binary predictor values corresponding to a prediction of one for a specific logic regression tree within a logic forest.  Only those predictors included in the logic regression tree are included in the matrix. 
 }
 
-\references{
-}
+
 \author{Bethany Wolf wolfb@musc.edu
 }
 \note{This function is internal and not intended to be used  independently of the other functions.

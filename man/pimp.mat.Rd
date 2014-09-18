@@ -5,8 +5,7 @@
 \description{This function is called by \code{pimp.import} and \code{\link{LBoost.PIs}}.  It is not intended to be used independently of these function.  
 }
 
-\references{
-}
+
 \author{Bethany Wolf wolfb@musc.edu
 }
 \note{This function is internal and not intended to be used independently of the other functions.

@@ -3,9 +3,6 @@ function(fit, preds, PI, title)
 {
  if (class(fit)!="logforest"  & class(fit)!="LBoost") 
     stop("fit not of class logforest or LBoost")
- require(CircStats)
- require(plotrix)
- require(gtools)
  tot.PI<-sum(fit$PI.frequency)
  persist.info<-persistence.prep(fit=fit, preds=preds, PI=PI)
  pert.PI<-sum(persist.info$all.freqs)
@@ -76,4 +73,3 @@ function(fit, preds, PI, title)
    }
  legend(x=3.25, y=-4.9, c(leg, "interactions"), cex=0.75)
 }
-

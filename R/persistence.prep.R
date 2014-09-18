@@ -11,8 +11,7 @@ function(fit, preds, PI)
  PIoI.freq<-ifelse (PI%in%names(frq), frq[PI], 0)
  allPI.list<-names(frq)
  m<-length(unique(unlist(mches)))
- if (m==0 & PIoI.freq==0) stop("There are no matches for this combination")
- if (m==1 & PIoI.freq>0) stop("This combination occurs only as an exact match")
+ if (m==0 & PIoI.freq==0 | m==1 & PIoI.freq>0) stop("There are no matches for this PI")
  sub.sizes<-c()
  if (PIoI.freq==0) {nms<-unique(unlist(mches))} 
  if (PIoI.freq>0) {nms<-unique(unlist(mches))[2:m]} 
@@ -318,4 +317,3 @@ function(fit, preds, PI)
  ans<-list(all.freqs=all.frq, rad.mat=rad.mat,main.freq=PIoI.freq, primary.info=prime.mat,
            position.list=posit.list, sizes=szes)
 }
-

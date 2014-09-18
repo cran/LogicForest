@@ -29,4 +29,3 @@ function(object, newdata,...)
  class(ans)<-"LBoost.prediction"
  ans
 }
-

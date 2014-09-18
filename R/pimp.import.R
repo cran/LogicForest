@@ -63,4 +63,3 @@ function(fit, data, testdata, BSpred, pred, Xs)#assumes have test data
   names(pimp.vimp)<-paste(pimpnames)
   out<-list(single.vimp=single.vimp, pimp.vimp=pimp.vimp, vec.Xvars=vec.Xvars, Xids=Xids)
 }
-

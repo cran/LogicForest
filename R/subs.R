@@ -146,4 +146,3 @@ function(fit, allPI.list, preds, match.list)
  names(num.matches)<-paste("size", lgth, sep=" ")
  ans<-list(numsizes=numsizes, uniq.sz=lgth, all.sz=all.lgth, matches=matches, num.matches=num.matches)
 }
-

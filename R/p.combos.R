@@ -8,4 +8,3 @@ function(n.pair,conj=0)
     }
   mat
 }
-

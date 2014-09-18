@@ -31,8 +31,7 @@ PI.imp = NULL, pred.imp = FALSE)
 }
 }
 
-\details{
-}
+
 
 \value{An object of class \code{"LBoost"} which is a list including values
   \item{CVmod}{ A list of all logic regression fits and the associated information in the LBoost model.  Each item in the list also gives a list of LR fits for a specific kfold data set, a matrix of weights given to each LR fit for that kfold data set, a matrix of the kfold training data used to construct the list of fits.}
@@ -49,7 +48,7 @@ PI.imp = NULL, pred.imp = FALSE)
   \item{PredImp }{ logical.  If TRUE predictor importance was measured.}
 }
 
-\references{Wolf, B.J., Slate, E.H., Hill, E.G. (2010) Logic Forest: An ensemble classifier for discovering logical combinations of binary markers.  Bioinformatics.
+\references{Wolf, B.J., Hill, E.G., Slate, E.H., Neumann, C.A., Kistner-Griffin, E.  (2012).  LBoost: A boosting algorithm with applications for epistasis discovery.  PLoS One.
 }
 
 \author{Bethany Wolf   wolfb@musc.edu
@@ -64,26 +63,26 @@ data(LF.data)
 
 #Set using annealing parameters using the logreg.anneal.control 
 #function from LogicReg package
-newanneal<-logreg.anneal.control(start=1, end=-2, iter=2500)
+newanneal<-logreg.anneal.control(start=1, end=-2, iter=2000)
 
-#typically more than 2500 iterations (>25000) would be used for 
+#typically more than 2000 iterations (>25000) would be used for 
 #the annealing algorithm.  A typical LBoost models also contains at 
 #least 100 trees.  These parameters were set to allow for faster
 #run time
 
 #The data set LF.data contains 50 binary predictors and a binary response Ybin
 #Looking at only the Permutation Measure
-LBfit.1<-LBoost(resp=LF.data$Ybin, Xs=LF.data[,1:50], nBS=20, kfold=4,
+LBfit.1<-LBoost(resp=LF.data$Ybin, Xs=LF.data[,1:50], nBS=10, kfold=2,
 anneal.params=newanneal, nperm=2, PI.imp="Permutation")
 print(LBfit.1)
 
 #Looking at only the Add-in/Leave-out importance measure
-LBfit.2<-LBoost(resp=LF.data$Ybin, Xs=LF.data[,1:50], nBS=20, kfold=4,
+LBfit.2<-LBoost(resp=LF.data$Ybin, Xs=LF.data[,1:50], nBS=10, kfold=2,
 anneal.params=newanneal, PI.imp="AddRemove")
 print(LBfit.2)
 
 #Looking at both measures of importance plus predictor importance
-LBfit.3<-LBoost(resp=LF.data$Ybin, Xs=LF.data[,1:50], nBS=20, kfold=4,
+LBfit.3<-LBoost(resp=LF.data$Ybin, Xs=LF.data[,1:50], nBS=10, kfold=2,
 anneal.params=newanneal, nperm=2, PI.imp="Both", pred.imp=TRUE)
 print(LBfit.3)
 }

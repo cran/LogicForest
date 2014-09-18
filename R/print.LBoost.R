@@ -15,9 +15,9 @@ function(x, num, ...)
  cat("CV model error rate = ", CVerr)
  cat("\n")
  cat("\n")
- if(x$PredImp==TRUE) 
+ if(x$PredImp==T) 
    {
-   toppreds<-sort(x$Pred.import, decreasing=TRUE)[1:num]
+   toppreds<-sort(x$Pred.import, decreasing=T)[1:num]
    norm.toppred<-round(toppreds/toppreds[1], digits=2)
    topp.nms<-names(toppreds)
    pfreq<-x$Pred.freq[topp.nms]
@@ -30,7 +30,7 @@ function(x, num, ...)
    }
  if(x$PIimp=="AddRemove")
    {
-   topPI<-sort(x$AddRemove.PIimport, decreasing=TRUE)[1:num]
+   topPI<-sort(x$AddRemove.PIimport, decreasing=T)[1:num]
    norm.topPI<-round(topPI/topPI[1], digits=2)
    topPInms<-names(topPI)
    PIfreq<-x$PI.freq[topPInms]
@@ -42,7 +42,7 @@ function(x, num, ...)
    }
  if(x$PIimp=="Permutation")
    {
-   topPI<-sort(x$Perm.PIimport, decreasing=TRUE)[1:num]
+   topPI<-sort(x$Perm.PIimport, decreasing=T)[1:num]
    topPInms<-names(topPI)
    norm.topPI<-round(topPI/topPI[1], digits=2)
    PIfreq<-x$PI.freq[topPInms]
@@ -54,11 +54,11 @@ function(x, num, ...)
    }
  if(x$PIimp=="Both")
    {
-   topPI1<-sort(x$AddRemove.PIimport, decreasing=TRUE)[1:num]
+   topPI1<-sort(x$AddRemove.PIimport, decreasing=T)[1:num]
    topPInms1<-names(topPI1)
    norm.topPI1<-round(topPI1/topPI1[1], digits=2)
    PIfreq1<-x$PI.freq[topPInms1]
-   topPI2<-sort(x$Perm.PIimport, decreasing=TRUE)[1:num]
+   topPI2<-sort(x$Perm.PIimport, decreasing=T)[1:num]
    topPInms2<-names(topPI2)
    norm.topPI2<-round(topPI2/topPI2[1], digits=2)
    PIfreq2<-x$PI.freq[topPInms2]
@@ -78,4 +78,3 @@ print(c(1:num))
    print.default(pis2, quote=FALSE, print.gap=3)
    }
 }
-

@@ -26,4 +26,3 @@ function(CVmod, alphas, pred)
  ans<-list(CVmiss=CVmiss, CVpred=CVpred)
  ans
 }
-

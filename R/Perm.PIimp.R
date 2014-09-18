@@ -30,7 +30,7 @@ function(resp, fullPIdata, mod, ntrees, wts, nperm)
      if(is.vector(tree.PIdat))
        {Otree.pred<-tree.PIdat
         O.treemiss<-sum(abs(TR.resp-Otree.pred))
-        p.ids<-sample(1:length(tree.PIdat), length(tree.PIdat), replace=FALSE)
+        p.ids<-sample(1:length(tree.PIdat), length(tree.PIdat), replace=F)
         Ptree.pred<-tree.PIdat[p.ids]
         P.treemiss<-sum(abs(TR.resp-Ptree.pred))
         DeltaMiss<-P.treemiss-O.treemiss
@@ -40,7 +40,7 @@ function(resp, fullPIdata, mod, ntrees, wts, nperm)
         {Otree.pred<-ifelse(rowSums(tree.PIdat)>0, 1, 0)
          O.treemiss<-sum(abs(TR.resp-Otree.pred))
          nobs<-length(Otree.pred)
-         p.ids<-sample(1:nobs, nobs, replace=FALSE)
+         p.ids<-sample(1:nobs, nobs, replace=F)
          nPIs<-ncol(tree.PIdat)
          for (g in 1:nPIs)
            {
@@ -63,4 +63,3 @@ function(resp, fullPIdata, mod, ntrees, wts, nperm)
  PI.importance<-colMeans(massPI.change)
  PI.importance
 }
-

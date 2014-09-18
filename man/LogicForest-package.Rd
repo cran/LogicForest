@@ -26,13 +26,11 @@ Bethany Wolf
 
 Maintainer: Bethany Wolf <wolfb@musc.edu>
 }
-\references{
+\references{Wolf, B.J., Slate, E.H., Hill, E.G. (2010) Logic Forest: An ensemble classifier for discovering logical combinations of binary markers.  Bioinformatics. \cr
+Wolf, B.J., Hill, E.G., Slate, E.H., Neumann, C.A., Kistner-Griffin, E.  (2012).  LBoost: A boosting algorithm with applications for epistasis discovery.  PLoS One.
+
 }
 
 \keyword{ package }
-\seealso{
-}
-\examples{
 
-}
 

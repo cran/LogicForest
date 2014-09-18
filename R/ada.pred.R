@@ -14,4 +14,3 @@ function(fits, alphas, Xs)
  prdct<-ifelse(prd.sign<0, 0, 1)
  prdct
 }
-
